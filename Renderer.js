@@ -31,5 +31,25 @@ class Renderer {
 
 
 
+    $(".pokemon-container").empty();
+    
+    var sourceAboutPokemon = $('#pokemon-template').html();
+    var templateAboutPokemon = Handlebars.compile(sourceAboutPokemon);
+    var newHTMLAboutPokemon = templateAboutPokemon(ourData); 
+    $(".pokemon-container").append(newHTMLAboutPokemon);
+
+
+
+
+
+    $(".meat-container").empty();
+    
+    var sourceAboutMeat = $('#aboutMe-template').html();
+    var templateAboutMeat = Handlebars.compile(sourceAboutMeat);
+    var newHTMLAboutMeat = templateAboutMeat(ourData); 
+    $(".meat-container").append(newHTMLAboutMeat);
+
+
+
   }
 }

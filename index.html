@@ -24,20 +24,33 @@
         </div>
     </script>
 
+
     <script id="quote-template" type="text/x-handlebars-template">
         <p>Favorite Quote:</p>
-        <div>"{{ quote }}"</div>
-        
-        
+        <div>"{{ quote }}" <br>-Kanye West</div>
     </script>
+
 
     <script id="friends-template" type="text/x-handlebars-template">
         {{#each friends}}
         <div class="friend-info">{{ firstName }} {{ lastName }}</div>
-        <br>
+        <br><br>
         {{/each}}
     </script>
 
+
+    <script id="pokemon-template" type="text/x-handlebars-template">
+        <div id="pokemon-image">
+            <img src="{{ pokemonURL }}">
+        </div>
+        <div id='pokemon-text'>Favorite Pokemon: {{ pokemonName }}</div>
+    </script>
+
+
+    <script id="aboutMe-template" type="text/x-handlebars-template">
+        <p>About Me:</p>
+        <div class='meat-text'>"{{text}}"</div>
+     </script>
 
 
 
@@ -55,7 +68,8 @@
         </div>	
         <div class="buttons">	
             <button id="loadData">Load User Data</button>	
-            <button id="displayData">Display User</button>	
+            <button id="displayData">Display User</button>
+
         </div>	
     </div>
 

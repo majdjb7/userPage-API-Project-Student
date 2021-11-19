@@ -3,8 +3,8 @@ const apiManager = new APIManager();
 $("#loadData").on("click", function () {
   apiManager.geenrateRandomPeople();
   apiManager.generateQuote();
-  // apiManager.generatePokemon();
-  // apiManager.generateText();
+  apiManager.generatePokemon();
+  apiManager.generateText();
 });
 
 $("#displayData").on("click", function () {

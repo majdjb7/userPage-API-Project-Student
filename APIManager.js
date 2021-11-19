@@ -39,7 +39,52 @@ class APIManager {
 
         this.data.quote = response.quote
       },
-      // error: 
+      error: function () {
+        console.log("error");
+      },
+    })
+  }
+
+  generatePokemon() {
+    let randomNum = Math.floor(Math.random() * 387);
+
+    $.ajax({
+      method: "GET",
+      url: `https://pokeapi.co/api/v2/pokemon/${randomNum}`,
+      success: (response) => {
+        this.data.pokemonName = response.forms[0].name[0].toUpperCase() + response.forms[0].name.slice(1)
+        const pokemonUrl = response.forms[0].url;
+
+        $.ajax({
+          method: "GET",
+          url: `${pokemonUrl}`,
+          success: (response) => {
+            this.data.pokemonURL = response.sprites.front_default 
+          },
+          error: function () {
+            console.log("error");
+          },
+        })
+
+      },
+      error: function () {
+        console.log("error");
+      },
+    })
+  }
+
+  generateText() {
+
+    $.ajax({
+      method: "GET",
+      url: "https://baconipsum.com/api/?type=meat-and-filler",
+      success: (response) => {
+        this.data.text = response[0]
+      },
+      error: function () {
+        console.log("error");
+      },
     })
   }
 }
+
