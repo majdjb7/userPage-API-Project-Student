@@ -8,10 +8,39 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 
 <body>
+
+    <script id="user-template" type="text/x-handlebars-template">
+        <div id="profile-pic">
+            <img src="{{mainUser.photo}}">
+        </div>
+        <div class="user-info">{{ mainUser.firstName }} {{ mainUser.lastName }}
+            <br>
+        {{ mainUser.city }} {{ mainUser.state }}</div>
+        </div>
+    </script>
+
+    <script id="quote-template" type="text/x-handlebars-template">
+        <p>Favorite Quote:</p>
+        <div>"{{ quote }}"</div>
+        
+        
+    </script>
+
+    <script id="friends-template" type="text/x-handlebars-template">
+        {{#each friends}}
+        <div class="friend-info">{{ firstName }} {{ lastName }}</div>
+        <br>
+        {{/each}}
+    </script>
+
+
+
+
     <div class="container">	
         <div class="user-container"></div>	
         <div class="quote-container"></div>	
@@ -25,10 +54,15 @@
             </div>	
         </div>	
         <div class="buttons">	
-            <button>Load User Data</button>	
-            <button>Display User</button>	
+            <button id="loadData">Load User Data</button>	
+            <button id="displayData">Display User</button>	
         </div>	
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="APIManager.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
