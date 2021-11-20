@@ -17,17 +17,21 @@ $("#displayData").on("click", function () {
 
 
 $("#saveUserPage").on("click", function () {
-  loadUsersCounter++
+  if(loadUsersCounter < 7) {
+    loadUsersCounter++
 
-  let userToSave = JSON.stringify(apiManager.data)
-  localStorage[`${loadUsersCounter}`] = userToSave;
-  let userToLoad = JSON.parse(localStorage[`${loadUsersCounter}`])
+    let userToSave = JSON.stringify(apiManager.data)
+    localStorage[`${loadUsersCounter}`] = userToSave;
+    let userToLoad = JSON.parse(localStorage[`${loadUsersCounter}`])
 
-  let personNameToSave = userToLoad.mainUser.firstName
-  let pokemonNameToSave = userToLoad.pokemonName
+    let personNameToSave = userToLoad.mainUser.firstName
+    let pokemonNameToSave = userToLoad.pokemonName
 
-  $('.dropup-content').append(`<a><button class="savedUser" id="${loadUsersCounter}" onclick="getSavedUser(${loadUsersCounter})">${personNameToSave} - ${pokemonNameToSave}</button></a>`)
-
+    $('.dropup-content').append(`<a><button class="savedUser" id="${loadUsersCounter}" onclick="getSavedUser(${loadUsersCounter})">${personNameToSave} - ${pokemonNameToSave}</button></a>`)
+  }
+  else {
+    alert("You can only save up to 7 users. Refresh the page to start again")
+  }
 });
 
 function getSavedUser(id) {

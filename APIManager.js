@@ -76,8 +76,8 @@ class APIManager {
       success: (response) => {
         this.data.text = response[0]
       },
-      error: function () {
-        console.log("error");
+      error: function (err) {
+        console.log("AJAX error in request: " + JSON.stringify(err, null, 2));
       },
     })
   }
