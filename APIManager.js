@@ -22,8 +22,8 @@ class APIManager {
         this.data.mainUser = users[0];
         this.data.friends = users.splice(1, 6);
       },
-      error: function () {
-        console.log("error");
+      error: function (xhr, text, error) {
+        console.log(text);
       },
     });
   }
@@ -35,8 +35,8 @@ class APIManager {
       success: (response) => {
         this.data.quote = response.quote
       },
-      error: function () {
-        console.log("error");
+      error: function (xhr, text, error) {
+        console.log(text);
       },
     })
   }
@@ -63,8 +63,8 @@ class APIManager {
         })
 
       },
-      error: function () {
-        console.log("error");
+      error: function (xhr, text, error) {
+        console.log(text);
       },
     })
   }
@@ -76,8 +76,8 @@ class APIManager {
       success: (response) => {
         this.data.text = response[0]
       },
-      error: function (err) {
-        console.log("AJAX error in request: " + JSON.stringify(err, null, 2));
+      error: function (xhr, text, error) {
+        console.log(text);
       },
     })
   }
