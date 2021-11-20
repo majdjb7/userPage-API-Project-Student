@@ -18,6 +18,9 @@ $("#displayData").on("click", function () {
     const render = new Renderer(apiManager.data);
     render.renderResults();
   }
+  else{
+    alert("Please press the 'Load User Data' Button first")
+  }
 });
 
 
