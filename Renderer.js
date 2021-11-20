@@ -14,6 +14,7 @@ class Renderer {
     var newHTMLforUser = templateForUser(ourData);
     $('.user-container').append(newHTMLforUser);
 
+
     $(".friends-container").empty();
     
     var sourceForFriends = $('#friends-template').html();
@@ -30,7 +31,6 @@ class Renderer {
     $('.quote-container').append(newHTMLForQuote);
 
 
-
     $(".pokemon-container").empty();
     
     var sourceAboutPokemon = $('#pokemon-template').html();
@@ -39,17 +39,11 @@ class Renderer {
     $(".pokemon-container").append(newHTMLAboutPokemon);
 
 
-
-
-
     $(".meat-container").empty();
     
     var sourceAboutMeat = $('#aboutMe-template').html();
     var templateAboutMeat = Handlebars.compile(sourceAboutMeat);
     var newHTMLAboutMeat = templateAboutMeat(ourData); 
     $(".meat-container").append(newHTMLAboutMeat);
-
-
-
   }
 }

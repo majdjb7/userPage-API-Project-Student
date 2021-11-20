@@ -1,5 +1,3 @@
-//This is the class that will manage all your APIs
-
 class APIManager {
   constructor() {
       this.data = {}
@@ -35,8 +33,6 @@ class APIManager {
       method: "GET",
       url: "https://api.kanye.rest",
       success: (response) => {
-        // return {quote: response.quote}
-
         this.data.quote = response.quote
       },
       error: function () {
@@ -74,7 +70,6 @@ class APIManager {
   }
 
   generateText() {
-
     $.ajax({
       method: "GET",
       url: "https://baconipsum.com/api/?type=meat-and-filler",
@@ -87,4 +82,3 @@ class APIManager {
     })
   }
 }
-

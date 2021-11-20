@@ -35,4 +35,3 @@ function getSavedUser(id) {
   const render = new Renderer(userToLoad);
   render.renderResults();
 }
-
