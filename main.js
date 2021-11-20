@@ -9,6 +9,7 @@ $("#loadData").on("click", function () {
   apiManager.generateQuote();
   apiManager.generatePokemon();
   apiManager.generateText();
+
 });
 
 
