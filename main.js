@@ -1,8 +1,10 @@
 const apiManager = new APIManager();
 let loadUsersCounter = 0
+let wasAPICalled = false
 
 
 $("#loadData").on("click", function () {
+  wasAPICalled = true
   apiManager.geenrateRandomPeople();
   apiManager.generateQuote();
   apiManager.generatePokemon();
@@ -11,8 +13,10 @@ $("#loadData").on("click", function () {
 
 
 $("#displayData").on("click", function () {
-  const render = new Renderer(apiManager.data);
-  render.renderResults();
+  if(wasAPICalled == true) {
+    const render = new Renderer(apiManager.data);
+    render.renderResults();
+  }
 });
 
 
