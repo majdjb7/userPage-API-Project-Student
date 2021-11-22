@@ -28,7 +28,7 @@
         <div class="buttons">	
             <button id="loadData">Load User Data</button>	
             <button id="displayData">Display User</button>
-            <button id="saveUserPage">Save User Page</button>
+            <button class="saveUserPage">Save User Page</button>
 
             <div class="dropup">
                 <button class="dropbtn" id="loadUserPage">Load Users Page</button>
@@ -60,10 +60,8 @@
 
 
     <script id="friends-template" type="text/x-handlebars-template">
-        {{#each friends}}
         <div class="friend-info">{{ firstName }} {{ lastName }}</div>
         <br><br>
-        {{/each}}
     </script>
 
 

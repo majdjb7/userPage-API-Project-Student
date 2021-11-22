@@ -3,6 +3,7 @@ let loadUsersCounter = 0
 let wasAPICalled = false
 
 
+
 $("#loadData").on("click", function () {
   wasAPICalled = true
   apiManager.geenrateRandomPeople();
@@ -13,7 +14,7 @@ $("#loadData").on("click", function () {
 });
 
 
-$("#displayData").on("click", function () {
+$(".displayData").on("click", function () {
   if(wasAPICalled == true) {
     const render = new Renderer(apiManager.data);
     render.renderResults();
@@ -25,17 +26,16 @@ $("#displayData").on("click", function () {
 
 
 $("#saveUserPage").on("click", function () {
-  if(loadUsersCounter < 7) {
+  if(loadUsersCounter < 50) {
     loadUsersCounter++
 
-    let userToSave = JSON.stringify(apiManager.data)
-    localStorage[`${loadUsersCounter}`] = userToSave;
+    localStorage[`${loadUsersCounter}`] = apiManager.data;
     let userToLoad = JSON.parse(localStorage[`${loadUsersCounter}`])
 
-    let personNameToSave = userToLoad.mainUser.firstName
+    let personNameToSave = userToLoad.firstName
     let pokemonNameToSave = userToLoad.pokemonName
 
-    $('.dropup-content').append(`<a><button class="savedUser" id="${loadUsersCounter}" onclick="getSavedUser(${loadUsersCounter})">${personNameToSave} - ${pokemonNameToSave}</button></a>`)
+    $('.dropup-content').append(`<a><button class="savedUser" id="${loadUsersCounter}">${personNameToSave} - ${pokemonNameToSave}</button></a>`)
   }
   else {
     alert("You can only save up to 7 users. Refresh the page to start again")
